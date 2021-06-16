@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css?family=Trade+Winds&display=swap');
+
+h1 {
+    font-family: 'Trade Winds', cursive;
+    font-variant: small-caps;
+    color: lightgoldenrodyellow;
+    margin: 0;
+    font-size: 24px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    width: 90%;
+    padding: 0 20px 20px 20px;
+    margin: 20px auto;
+    background-color: rgb(100, 100, 100);
+}
+
+header {
+    position: relative;
+    margin:0px -20px;
+    padding: 20px;
+    background-color: rgb(50, 50, 50);
+    border: 3px solid green;
+    border-bottom-color: yellow;
+	border-radius:10px 10px 0 0;
+}
+
+main {
+    margin:0px -20px;
+    background-image: url('table.png');
+    background-size: contain;
+    background-repeat: repeat;
+    border: 3px solid green;
+    border-top-width: 0;
+    border-radius:0 0 10px 10px;
+    height: 85vh;
+    position: relative;
+    overflow: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Toplisták*/
+#beginnerSolo, #intermediateSolo, #multiplayer {
+    width: 32.7%;
+    height: 96%;
+    display: inline-block;
+}
+
+#beginnerSolo h2, #intermediateSolo h2, #multiplayer h2 {
+    margin-top: 10px;
+    height: 100px;
+    font-size: 26px;
+}
+
+#beginnerSolo tr:nth-child(2n), #intermediateSolo tr:nth-child(2n), #multiplayer tr:nth-child(2n) {
+    height: 30px;
+    background-color: rgb(130, 65, 0);
+}
+
+#beginnerSolo tr:nth-child(2n+1), #intermediateSolo tr:nth-child(2n+1), #multiplayer tr:nth-child(2n+1) {
+    height: 30px;
+    background-color:rgb(100, 50, 0);
+}
+
+#beginnerSolo {
+    border-left: unset;
+}
+
+#multiplayer {
+    border-right: unset;
+}
+
+#beginnerSolo table, #intermediateSolo table, #multiplayer table {
+    width: 100%;
+}
+
+#savedGames {
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    min-height: 65%;
+    color: lightgoldenrodyellow;
+    background-color: rgb(150, 75, 0);
+    border-bottom: 3px dashed yellow;
+    text-align: center;
+}
+
+#savedBtn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgb(120, 120, 120, 0.2);
+    font-size: 24px;
+    border: unset;
+}
+
+#savedBtn:hover {
+    background-color: rgb(120, 120, 120, 0.4);
+    cursor: pointer;
+}
+/*---*/
+
+
+
+/*Jobb oldali lapok*/
+#right-pane {
+    position: absolute;
+    top: 10px;
+    left: 73%;
+    padding: 5px 0;
+    width: 25%;
+    height: 90%;
+}
+
+#right-pane-content {
+    position: relative;
+}
+
+#playersPanel, #settingsPanel, #rulesPanel {
+    z-index: 1;
+    position: absolute;
+    top: 37px;
+    left: 0;
+    width: 92%;
+    padding: 10px;
+    background-color: rgb(150, 75, 0);
+    border: 3px solid rgb(100, 50, 0);
+    color: lightgoldenrodyellow;
+    font-size: 20px;
+}
+
+img.playersTab, img.settingsTab, img.rulesTab {
+    display: none;
+}
+
+.inactiveTab {
+    background-color: rgb(120, 60, 0);
+}
+
+button {
+    z-index: 2;
+    position: absolute;
+    height: 40px;
+    font-size: 12px;
+    color: lightgoldenrodyellow;
+    background-color: rgb(150, 75, 0);
+    border: 3px solid rgb(100, 50, 0);
+    border-bottom : 0px;
+    cursor: pointer;
+    margin-bottom: -3px;
+    padding: 3px;
+}
+
+button:hover {
+    background-color: rgb(200, 100, 0);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button:disabled:hover {
+    background-color: rgb(120, 60, 0);
+    cursor: default;
+}
+/*---*/
+/*Játékosok fül*/
+.playersTab {
+    left: 0;
+    width: 30%;
+}
+
+.player {
+    position: relative;
+    color: lightgoldenrodyellow;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px solid rgb(100, 50, 0);
+    background-color: rgb(130, 65, 0);
+    width: 50%;
+    margin: 3px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.player:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.chosenPlayer {
+    border-color: goldenrod;
+}
+
+.notPlaying {
+    display: none;
+}
+
+.point {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: rgb(130, 65, 0);
+    border: 3px solid rgb(100, 50, 0);
+    display: inline;
+}
+
+#timer {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    width: 70%;
+    background-color: rgb(130, 65, 0);
+    border: 3px solid rgb(100, 50, 0);
+    display: flex;
+}
+
+input {
+    width: 40px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*---*/
+/*Beállítások fül*/
+.settingsTab {
+    left: 30%;
+    width: 30%;
+}
+
+#settingsPanel span {
+    padding: 10px;
+    background-color: rgb(130, 65, 0);
+    display: flex;
+    margin: 0 -10px;
+}
+
+select, input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid black;
+    margin-left: 5px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#otherSettings {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    border-top: 3px dashed rgb(100, 50, 0);
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(130, 65, 0);
+    margin: 0 -10px;
+}
+
+#otherSettings select {
+    display: inline;
+}
+/*---*/
+/*Szabáylok fül*/
+.rulesTab {
+    left: 60%;
+    width: 30%;
+}
+
+#rulesPanel {
+    text-align: justify;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+a {
+    color:yellow;
+}
+
+a:visited {
+    color: orange;
+}
+/*---*/
+/*Asztal*/
+#table {
+    position: absolute;
+    width: 72%;
+    height: 90%;
+    top: 9%;
+}
+
+.card {
+    border-style: solid;
+    border-color: black;
+}
+
+.card:hover {
+    border-color: goldenrod;
+    cursor: pointer;
+}
+
+.inDeck {
+    display: none;
+}
+
+.highlight {
+    border-color: red;
+}
+
+.chosenCard {
+    border-color: goldenrod;
+}
+/*---*/
+/*Segitség gombok*/
+#buttons {
+    padding: 10px;
+    width: 72%;
+    height: 7%;
+}
+
+#buttons button {
+    position: relative;
+    border: 3px solid rgb(100, 50, 0);
+    font-size: 16px;
+    margin: 0;
+}
+
+button.hasSET {
+    width: 140px;
+}
+
+button.showSET {
+    width: 140px;
+}
+
+button.drawThree {
+    width: 140px;
+}
+
+#start {
+    width: 120px;
+}
+
+.disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+/*---*/
+/*Végeredmény*/
+#leaderboard {
+    z-index: 4;
+    position: absolute;
+    border: 3px solid rgb(100, 50, 0);
+    background-color: rgb(150, 75, 0);
+    color: lightgoldenrodyellow;
+    width: 65%;
+    height: 75%;
+    top: 16%;
+    font-size: 26px;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    background-color: rgb(130, 65, 0);
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+#leaderboard-content {
+    position: relative;
+    width: 100%;
+}
+
+#leaderboard-content tr:nth-child(2n) {
+    height: 30px;
+    background-color: rgb(130, 65, 0);
+}
+
+#leaderboard-content tr:nth-child(2n+1) {
+    height: 30px;
+    background-color:rgb(100, 50, 0);
+}
+
+#close {
+    z-index: 4;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    color: lightgoldenrodyellow;
+    background-color: rgb(255, 255, 255, 0.2);
+}
+
+#close:hover {
+    background-color: rgb(255, 255, 255, 0.4);
+}
+
+#continue {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-size: 20px;
+    border: 3px solid rgb(100, 50, 0);
+    width: 100%;
+}
+/*---*/
+/*Figyelmeztetés*/
+#alert {
+    z-index: 3;
+    position: absolute;
+    border: 3px solid rgb(100, 50, 0);
+    background-color: rgb(130, 65, 0);
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    top: 12%;
+    left: 50%;
+    text-align: center;
+}
+
+#alert span {
+    min-width: unset;
+    color: lightgoldenrodyellow;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: auto 0;
+    text-align: center;
+}
+/*---*/
+/*Fülek cimkézése*/
+@media screen and (max-width: 1300px) {
+    .playersTab {
+        left: 0;
+        width: 40px;
+    }
+    
+    .settingsTab {
+        left: 40px;
+        width: 40px;
+    }
+    
+    .rulesTab {
+        left: 80px;
+        width: 40px;
+    }
+
+    span.playersTab, span.settingsTab, span.rulesTab {
+        display: none;
+    }
+    
+    img.playersTab, img.settingsTab, img.rulesTab {
+        height: 20px;
+        width: 20px;
+        display: inline;
+    }
+}
+/*---*/

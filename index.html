@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/ico" href="icon.png" />
+    <title>SET</title>
+</head>
+<body>
+    <header>
+        <h1>SET kártyajáték</h1>
+        <button id="savedBtn">Eredmények</button>
+    </header>
+    <div class="hidden" id="alert">
+        <span></span>
+    </div>
+    <div class="hidden" id="leaderboard">
+        <button id="close">X</button>
+        <h2>Eredmény</h2>
+        <table id="leaderboard-content">
+        </table>
+        <button class="hidden" id="continue">Új játék inditása ugyanezekkel a játékosokkal</button>
+    </div>
+    <main>
+        <div class="hidden" id="savedGames">
+            <div id="beginnerSolo">
+                <h2>Egyjátékos mód kezdő nehézség toplistája</h2>
+                <table></table>
+            </div>
+            <div id="intermediateSolo">
+                <h2>Egyjátékos mód haladó nehézség toplistája</h2>
+                <table></table>
+            </div>
+            <div id="multiplayer">
+                <h2>Utolsó 10 többjátékos játék összesített eredményei</h2>
+                <table></table>
+            </div>
+        </div>
+        <div id="buttons">
+            <button id="start">START</button>
+            <button class="hasSET">Van-e SET?</button>
+            <button class="showSET">Hol van SET?</button>
+            <button class="drawThree">Plusz 3 lap</button>
+        </div>
+        <div id="table"></div>
+        <div id="right-pane">
+            <div id="right-pane-content">
+                <button class="playersTab inactiveTab"><img class="playersTab" src="player.png"><span class="playersTab">JÁTÉKOSOK</span></button>
+                <button class="settingsTab"><img class="settingsTab" src="settings.png"><span class="settingsTab">BEÁLLÍTÁSOK</span></button>
+                <button class="rulesTab inactiveTab"><img class="rulesTab" src="rules.png"><span class="rulesTab">SZABÁLYOK</span></button>
+                <div class="hidden" id="playersPanel"></div>
+                <div id="settingsPanel">
+                    <span>
+                        Nehézség:
+                        <select id="difficulty">
+                            <option value="27" selected>Kezdő</option>
+                            <option value="81">Haladó</option>
+                        </select>
+                    </span>
+                    </br>
+                    <span>
+                        Játékosok száma:
+                        <input id="numOfPlayers" type="number" value="1" min="1" max="10">
+                    </span>
+                    </br>
+                    <span>
+                        Játék módja:
+                        <select id="mode">
+                            <option value="training" selected>Gyakorló</option>
+                            <option value="competition">Verseny</option>
+                        </select>
+                    </span>
+                    </br>
+                    <div id="otherSettings">
+                        Egyéb beállítások:
+                        </br>
+                        <span>
+                            Van-e SET? gomb:
+                            <select class="hasSET">
+                                <option value="true" selected>igen</option>
+                                <option value="false">nem</option>
+                            </select>
+                        </span>
+                        <span>
+                            Hol van SET? gomb:
+                            <select class="showSET">
+                                <option value="true" selected>igen</option>
+                                <option value="false">nem</option>
+                            </select>
+                        </span>
+                        <span>
+                            Plusz 3 lap:
+                            <select class="drawThree">
+                                <option value="true" selected>gomb</option>
+                                <option value="false">automatikus</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="hidden" id="rulesPanel">
+                    <p>
+                        A játék célja hogy 3 kártyából álló SET-eket találjunk meg az asztalra lehelyezett 12 kártyából. Minden kártyának 4 tulajdonsága van, amik a következők:
+                        <ul>
+                            <li>FORMA: ovális, hullámos, rombusz</li>
+                            <li>SZÍN: piros, zöld, lila</li>
+                            <li>SZÁM: 1, 2 vagy 3 forma</li>
+                            <li>TARTALOM: tömör, csíkos, üres</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Egy SET 3 kártyából áll, amiben minden jellemzőt külön megvizsgálva, azoknak vagy minden kártyán azonosnak, vagy minden kártyán különbözőnek kell lennie.
+                        Ennek a szabálynak MINDEN tulajdonság esetében meg kell felelnie a kiválasztott három lapnak.
+                        Más szavakkal: a forma vagy azononos mindhárom kártyán, vagy mindegyiken más; a szín vagy azonos mindhárom kártyán, vagy mindegyiken különböző, stb...
+                        Fordítva: ha a lapokon egy tulajdonságot vizsgálva 2 azonos és 1 különböző típus látható, akkor az nem SET.
+                    </p>
+                    <a href="https://fejlesztojatekvilag.hu/uploaded/set_magyar_szabaly.pdf">Az eredeti kártyajáték szabálya</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>
